@@ -1,11 +1,15 @@
 # Prerequisites
 *.d
+.DS_Store
 
 # Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
+*.map
+*.lst
+*.dSYM
 
 # Precompiled Headers
 *.gch
@@ -15,6 +19,7 @@
 *.so
 *.dylib
 *.dll
+*.plist
 
 # Fortran module files
 *.mod
@@ -30,3 +35,10 @@
 *.exe
 *.out
 *.app
+*.dol
+*.elf
+*.nacp
+*.nro
+
+# Ignore engine and engine-app directories
+build/rock-rain
