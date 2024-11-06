@@ -42,3 +42,4 @@
 
 # Ignore engine and engine-app directories
 build/rock-rain
+build/engine
