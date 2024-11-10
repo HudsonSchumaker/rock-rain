@@ -31,6 +31,11 @@ private:
 	SDL_Texture* logoTexture = nullptr;
 	SDL_Rect rect = { 0, 0, 0, 0 };
 
+	SDL_Texture* pressSpacebar = nullptr;
+	SDL_Rect pressSpacebarRect = { 0, 0, 0, 0 };
+
+	short speed = 8;
+
 	void load() override;
 	void input() override;
 	void update() override;

@@ -46,6 +46,9 @@ void TitleScreen::load() {
 		size.h  // h
 	};
 
+	pressSpacebar = Gfx::getInstance()->createText("HemiHead.ttf", "- press spacebar to start -", 28, { 255, 0, 0, 255 });
+	pressSpacebarRect = Gfx::getInstance()->getTextureBounds(pressSpacebar);
+
 	isRunning = true;
 }
 
@@ -76,12 +79,16 @@ void TitleScreen::update() {
 }
 
 void TitleScreen::render() {
-
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	SDL_RenderCopy(renderer, logoTexture, NULL, &rect);
-	SDL_RenderPresent(renderer);
 
+	// Draw press spacebar
+	pressSpacebarRect.x = (Defs::SCREEN_WIDTH - pressSpacebarRect.w) / 2;
+	pressSpacebarRect.y = Defs::SCREEN_H_HEIGHT + static_cast<int>(speed * SDL_cos(SDL_GetTicks() * (Defs::PI / 1600.0f)));
+	SDL_RenderCopy(renderer, pressSpacebar, NULL, &pressSpacebarRect);
+
+	SDL_RenderPresent(renderer);
 }
 
 void TitleScreen::unload() {
